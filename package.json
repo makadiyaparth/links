@@ -1,0 +1,23 @@
+{
+  "name": "links",
+  "version": "1.0.0",
+  "description": "Web app to collect useful links and search through them.",
+  "main": "app.js",
+  "scripts": {},
+  "keywords": [
+    "links",
+    "bookmarks",
+    "RestAPI",
+    "Mongoose",
+    "NodeJS",
+    "Express"
+  ],
+  "author": "Parth Makadiya",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.8"
+  }
+}
