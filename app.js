@@ -25,4 +25,4 @@ app.get('/add', (req, res) => {
 
 require('./app/routes/link.routes.js')(app)
 
-app.listen(3000, () => console.log('[INFO] Server started'))
+app.listen(process.env.PORT || 3000, () => console.log('[INFO] Server started'))
