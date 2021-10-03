@@ -1,8 +1,8 @@
 <%- include('partials/header') %>
 
   <form action="/links" method="get">
-    <input type="text" name="searchTerm" id="searchTerm" class="form-control" placeholder="Search links... Try docs"
-      value="<%=query%>" autofocus="true" onfocus="this.select()" />
+    <input type="text" name="q" id="q" class="form-control" placeholder="Search links... Try docs" value="<%=query%>"
+      autofocus="true" onfocus="this.select()" />
   </form>
 
   <% if (links.length===0) { %>

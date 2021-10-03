@@ -35,7 +35,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all links from the database.
 exports.findAll = (req, res) => {
-    const query = req.query.searchTerm;
+    const query = req.query.q;
     const regex = new RegExp(query,'i')
 
     Link.find().where({
