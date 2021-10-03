@@ -52,14 +52,15 @@ exports.findAll = (req, res) => {
 
 // Find a single Link with a linkId
 exports.findOne = (req, res) => {
-    Link.findById(req.params.linkId)
+    Link.findById(req.params.id)
     .then(link => {
         if(!link) {
             return res.status(404).send({
                 message: 'Link not found with id ' + req.params.linkId
             })            
         }
-        res.send(link)
+        console.log(link)
+        res.render('edit', {id: link._id, title: link.title, href: link.href, tags: link.tags.join(', ')})
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
@@ -87,9 +88,10 @@ exports.update = (req, res) => {
     }
 
     // Find link and update it with the request body
-    Link.findByIdAndUpdate(req.params.linkId, {
+    Link.findByIdAndUpdate(req.params.id, {
         title: req.body.title,
-        href: req.body.href
+        href: req.body.href,
+        tags: req.body.tags.split(',')
     }, {new: true})
     .then(link => {
         if(!link) {
@@ -97,7 +99,7 @@ exports.update = (req, res) => {
                 message: 'Link not found with id ' + req.params.linkId
             })
         }
-        res.send(link)
+        res.redirect('/')
     }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
@@ -112,14 +114,14 @@ exports.update = (req, res) => {
 
 // Delete a link with the specified linkId in the request
 exports.delete = (req, res) => {
-    Link.findByIdAndRemove(req.params.linkId)
+    Link.findByIdAndRemove(req.params.id)
     .then(link => {
         if(!link) {
             return res.status(404).send({
                 message: 'Link not found with id ' + req.params.linkId
             })
         }
-        res.send({message: 'Link deleted successfully!'})
+        res.redirect('/')
     }).catch(err => {
         if(err.kind === 'ObjectId' || err.name === 'NotFound') {
             return res.status(404).send({

@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+  <form action="/links/<%=id%>" method="post">
+    <div class="d-flex justify-content-between">
+      <h1>Edit Link</h1>
+      <a href="/links/delete/<%=id%>" class="text-danger">delete</a>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" name="title" id="title" class="form-control" value="<%=title%>" required />
+    </div>
+    <div class="mb-3">
+      <label for="href" class="form-label">HREF</label>
+      <input type="text" name="href" id="href" class="form-control" value="<%=href%>" required />
+    </div>
+    <div class="mb-3">
+      <label for="tags" class="form-label">Tags (comma seperated)</label>
+      <input type="text" name="tags" id="tags" class="form-control" value="<%=tags%>" />
+    </div>
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </form>
+
+  <%- include('partials/footer') %>

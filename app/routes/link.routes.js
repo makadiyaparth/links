@@ -7,7 +7,7 @@ module.exports = (app) => {
 
     app.get('/links/:id', links.findOne);
 
-    app.put('/links/:id', links.update);
+    app.post('/links/:id', links.update);
 
-    app.delete('/links/:id', links.delete);
+    app.get('/links/delete/:id', links.delete);
 }
