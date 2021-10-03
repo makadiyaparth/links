@@ -59,7 +59,6 @@ exports.findOne = (req, res) => {
                 message: 'Link not found with id ' + req.params.linkId
             })            
         }
-        console.log(link)
         res.render('edit', {id: link._id, title: link.title, href: link.href, tags: link.tags.join(', ')})
     }).catch(err => {
         if(err.kind === 'ObjectId') {
