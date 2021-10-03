@@ -1,33 +1,31 @@
 <%- include('partials/header') %>
 
-<form action="/links" method="get">
-  <input
-    type="text"
-    name="searchTerm"
-    id="searchTerm"
-    class="form-control"
-    placeholder="Search links... Try docs"
-    value="<%=query%>"
-    autofocus="true"
-    onfocus="this.select()"
-  />
-</form>
+  <form action="/links" method="get">
+    <input type="text" name="searchTerm" id="searchTerm" class="form-control" placeholder="Search links... Try docs"
+      value="<%=query%>" autofocus="true" onfocus="this.select()" />
+  </form>
 
-<% if (links.length===0) { %>
-<div class="text-center mt-3 text-muted">No links found</div>
-<% } %> <% links.forEach((link)=> { %>
-<div class="row mt-3">
-  <div class="card col">
-    <div class="card-body">
-      <div class="d-flex justify-content-between">
-        <h3 class="card-title"><%=link.title%></h3>
-        <!-- <button class="btn cp" data-clipboard-text="<%=link.href%>">
+  <% if (links.length===0) { %>
+    <div class="text-center mt-3 text-muted">No links found</div>
+    <% } %>
+      <% links.forEach((link)=> { %>
+        <div class="row mt-3">
+          <div class="card col">
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title">
+                  <%=link.title%>
+                </h3>
+                <!-- <button class="btn cp" data-clipboard-text="<%=link.href%>">
                             <img src="svg/copy-solid.svg" alt="copy icon to copy href to clipboard"
                                 style="width:2vw; cursor: pointer;">
                         </button> -->
-      </div>
-      <a href="<%=link.href%>" target="_blank" id="href"> <%=link.href%> </a>
-    </div>
-  </div>
-</div>
-<% }) %> <%- include('partials/footer') %>
+              </div>
+              <a href="<%=link.href%>" target="_blank" id="href">
+                <%=link.href%>
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+          <%- include('partials/footer') %>
