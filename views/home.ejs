@@ -9,20 +9,21 @@
     <div class="text-center mt-3 text-muted">No links found</div>
     <% } %>
       <% links.forEach((link)=> { %>
-        <div class="row mt-3 mx-0">
-          <div class="card col">
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <h3 class="card-title">
-                  <%=link.title%>
-                </h3>
-                <a href="/links/<%=link._id%>">edit</a>
+        <% const hue=Math.floor(Math.random() * (360) + 1) %>
+          <div class="row mt-3 mx-0">
+            <div class="card col" style="background-color: hsl(<%=hue%>, 14%, 90%)">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <h3 class="card-title">
+                    <%=link.title%>
+                  </h3>
+                  <a href="/links/<%=link._id%>">edit</a>
+                </div>
+                <a href="<%=link.href%>" target="_blank" id="href">
+                  <%=link.href%>
+                </a>
               </div>
-              <a href="<%=link.href%>" target="_blank" id="href">
-                <%=link.href%>
-              </a>
             </div>
           </div>
-        </div>
-        <% }) %>
-          <%- include('partials/footer') %>
+          <% }) %>
+            <%- include('partials/footer') %>
